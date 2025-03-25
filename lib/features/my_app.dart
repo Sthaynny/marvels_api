@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marvels_api/core/routes/app_router.dart';
+import 'package:marvels_api/core/utils/string/strings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -6,11 +8,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: nomeAppString,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Container(),
+      routes: routes,
     );
   }
 }
