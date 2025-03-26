@@ -1,4 +1,5 @@
 import 'package:marvels_api/core/utils/commands/commands.dart';
+import 'package:marvels_api/core/utils/result/result.dart';
 import 'package:marvels_api/features/shared/characters/domain/models/character_model.dart';
 import 'package:marvels_api/features/shared/characters/domain/models/thumbnails_model.dart';
 import 'package:marvels_api/features/shared/characters/domain/repositories/character_repository.dart';
@@ -7,13 +8,13 @@ final class HomeViewModel {
   HomeViewModel({required CharacterRepository characterRepository}) {
     getCharacters = CommandBase<List<CharacterModel>>(() async {
       final result = await characterRepository.getCharacters();
-      // if (result.isError) {
-      //   _isError = true;
-      // } else {
-      //   _isError = false;
-      // _characters = result.value!;
-      _characters = List.generate(20, (index) => temporario);
-      // }
+      if (result.isError) {
+        _isError = true;
+      } else {
+        _isError = false;
+        _characters = result.value!;
+        // _characters = List.generate(20, (index) => temporario);
+      }
       return result;
     });
   }
