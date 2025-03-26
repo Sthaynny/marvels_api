@@ -2,7 +2,7 @@
    <img src="https://github.com/user-attachments/assets/eb1a85c5-b298-4323-b55d-d37b915a6517" alt="app" width="200"/>
 </p>
 
-<h1 align="center">Nome do projeto</h1>
+<h1 align="center">Marvels API</h1>
 
 <p align="center">
    <a href="https://www.linkedin.com/in/igor-sthaynny/">
@@ -17,7 +17,9 @@
   </a>
 </p>
 
-<p align="center">Breve descricao do projeto</p>
+<p align="center">
+  Projeto que consome a API da Marvel para exibir personagens e suas informações, como nome, imagem, descri o e quadrinhos relacionados.
+</p>
 
 <hr />
 
@@ -48,9 +50,19 @@
 
 
 # :rocket: Tecnologias
-Esse:
+Tecnologias usadas:
+- Injeção de dependencia(get_it: ^8.0.3)
+- Api Rest(dio: dio: ^5.8.0+1)
+- Lib de criptografia(crypto: ^3.0.6)
+- Mocks para teste(mocktail: ^1.0.4)
 
-Descreva as tecnologias usadas aqui
+Foi utilizado MVVM como arquitetura, estrutura de commands do flutter para gerencia de stados da tela.
+
+Pontos de molhoria:
+
+- Implementação para navegar entre as revistas de cada pesonagens
+- Criação de um catalogos de Series
+- Aplicar uma arquitetura multi-repo com modulos independentes. Para assistir uma filme e/ou serie no app;
 
 # :computer: Como rodar
 
