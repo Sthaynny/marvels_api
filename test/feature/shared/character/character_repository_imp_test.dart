@@ -1,9 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:marvels_api/core/utils/result/result.dart';
 import 'package:marvels_api/features/shared/characters/data/repositories/character_repository_imp.dart';
 import 'package:marvels_api/features/shared/characters/data/services/character_service.dart';
 import 'package:marvels_api/features/shared/characters/domain/models/character_model.dart';
 import 'package:mocktail/mocktail.dart';
+
+import '../../mock/character_mock.dart';
 
 class CharacterServiceMock extends Mock implements CharacterService {}
 
@@ -13,9 +16,14 @@ void main() {
 
   group('CharacterRepository', () {
     test('Deve retornar uma lista de CharacterModel', () async {
-      when(
-        () => service.getCharacters(),
-      ).thenAnswer((_) async => Result.ok([]));
+      when(() => service.getCharacters()).thenAnswer(
+        (_) async => Response(
+          data: {
+            "data": [tMapCharacter],
+          },
+          requestOptions: RequestOptions(),
+        ),
+      );
       final result = await repository.getCharacters();
 
       expect(result.isOk, true);
@@ -25,7 +33,7 @@ void main() {
     test('Deve retornar um erro', () async {
       when(
         () => service.getCharacters(),
-      ).thenAnswer((_) async => Result.error(Exception()));
+      ).thenAnswer((_) async => throw Exception());
       final result = await repository.getCharacters();
 
       expect(result.isError, true);

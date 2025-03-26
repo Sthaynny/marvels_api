@@ -9,8 +9,19 @@ class CharacterRepositoryImp implements CharacterRepository {
   CharacterRepositoryImp({required CharacterService characterService})
     : _characterService = characterService;
   @override
-  Future<Result<List<CharacterModel>>> getCharacters() {
-    // TODO: implement getCharacters
-    throw UnimplementedError();
+  Future<Result<List<CharacterModel>>> getCharacters() async {
+    try {
+      final result = await _characterService.getCharacters();
+
+      final data = result.data['data'] as List;
+      return Result.ok(
+        List.generate(
+          data.length,
+          (index) => CharacterModel.fromMap(data[index]),
+        ),
+      );
+    } catch (e) {
+      return Result.error(e as Exception);
+    }
   }
 }
