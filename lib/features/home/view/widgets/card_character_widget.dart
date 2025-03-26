@@ -23,7 +23,7 @@ class CardCharacterWidget extends StatelessWidget {
         ),
         leading: ImageWidget(
           url: character.thumbnail.path,
-          height: MediaQuery.of(context).size.width * .2,
+          size: MediaQuery.of(context).size.width * .2,
         ),
       ),
     );
