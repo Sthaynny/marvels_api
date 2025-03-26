@@ -11,17 +11,17 @@ class CardCharacterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Semantics(
-          header: true,
-          child: Text(
-            character.name,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-            textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
-          ),
+        title: Text(
+          character.name,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
         ),
         subtitle: Text(
           character.description,
           style: TextStyle(fontSize: 14),
+
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
         ),
         leading: ImageWidget(

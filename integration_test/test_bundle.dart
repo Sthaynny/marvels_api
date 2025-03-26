@@ -9,7 +9,7 @@ import 'package:patrol/src/native/contracts/contracts.dart';
 import 'package:test_api/src/backend/invoker.dart';
 
 // START: GENERATED TEST IMPORTS
-import 'home_screen_components_test.dart' as home_screen_components_test;
+import 'components/home_screen_components_test.dart' as home_screen_components_test;
 // END: GENERATED TEST IMPORTS
 
 Future<void> main() async {

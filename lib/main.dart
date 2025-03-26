@@ -16,3 +16,14 @@ void main() {
     },
   );
 }
+
+void mainMock() {
+  runZonedGuarded(
+    () {
+      runApp(const MyApp());
+    },
+    (error, stack) {
+      debugPrint(erroDeInicializacaoString);
+    },
+  );
+}

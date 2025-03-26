@@ -57,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           return viewModel.getCharacters.running
               ? Center(child: const CircularProgressIndicator())
               : SingleChildScrollView(
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
                     CarrouselCharactersWidget(characters: viewModel.characters),

@@ -11,7 +11,7 @@ import 'package:marvels_api/features/shared/characters/domain/repositories/chara
 import 'package:mocktail/mocktail.dart';
 import 'package:patrol/patrol.dart';
 
-import '../test/feature/mock/character_mock.dart';
+import '../../test/feature/mock/character_mock.dart';
 
 class CharacterRepositoryMock extends Mock implements CharacterRepository {}
 

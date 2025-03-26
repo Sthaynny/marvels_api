@@ -3,9 +3,14 @@ import 'package:marvels_api/features/shared/characters/domain/models/thumbnails_
 
 final tInstanceCharacterModel = CharacterModel(
   id: 1,
-  name: 'name',
-  description: 'description',
-  thumbnail: tInstanceThumbnailsModel,
+  name: 'Demolidor',
+  description:
+      'Demolidor é um personagem fictício que aparece nas histórias em quadrinhos publicadas pela Marvel Comics. Um super-herói criado pelo escritor/editor Stan Lee e pelo artista Bill Everett com algumas contribuições de Jack Kirby.',
+  thumbnail: ThumbnailsModel(
+    path:
+        'https://static.wikia.nocookie.net/liberproeliis/images/d/de/Demolidor.png/revision/latest?cb=20190314032551&path-prefix=pt-br',
+    ext: 'jpg',
+  ),
 );
 final tMapCharacter = <String, dynamic>{
   'id': 1,
