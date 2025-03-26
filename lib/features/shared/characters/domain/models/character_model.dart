@@ -24,7 +24,7 @@ class CharacterModel {
       id: map['id'] as int,
       name: map['name'] as String,
       description: map['description'] as String,
-      thumbnail: map['thumbnail'] as String,
+      thumbnail: map['thumbnail'],
     );
   }
 
