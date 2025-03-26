@@ -4,7 +4,7 @@ import 'package:marvels_api/features/shared/characters/domain/models/character_m
 import '../../mock/character_mock.dart';
 
 void main() {
-  test('Deve retornar uma instancia de CharacterEntity', () {
+  test('Deve retornar uma instancia de CharacterModel', () {
     expect(tInstanceCharacterModel, isA<CharacterModel>());
   });
 

@@ -13,9 +13,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final HomeViewModel viewModel;
+
   @override
   void initState() {
     viewModel = widget.viewModel;
+    viewModel.getCharacters.execute();
     super.initState();
   }
 
@@ -24,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(nomeAppString)),
       body: SingleChildScrollView(child: Column(children: [
+        
         
       ],
     )),

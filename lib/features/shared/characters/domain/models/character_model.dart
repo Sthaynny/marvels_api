@@ -1,8 +1,10 @@
+import 'package:marvels_api/features/shared/characters/domain/models/thumbnails_model.dart';
+
 class CharacterModel {
   final int id;
   final String name;
   final String description;
-  final String thumbnail;
+  final ThumbnailsModel thumbnail;
   CharacterModel({
     required this.id,
     required this.name,
@@ -15,7 +17,7 @@ class CharacterModel {
       'id': id,
       'name': name,
       'description': description,
-      'thumbnail': thumbnail,
+      'thumbnail': thumbnail.toMap(),
     };
   }
 
@@ -24,7 +26,7 @@ class CharacterModel {
       id: map['id'] as int,
       name: map['name'] as String,
       description: map['description'] as String,
-      thumbnail: map['thumbnail'],
+      thumbnail: ThumbnailsModel.fromMap(map['thumbnail']),
     );
   }
 
@@ -32,7 +34,7 @@ class CharacterModel {
     int? id,
     String? name,
     String? description,
-    String? thumbnail,
+    ThumbnailsModel? thumbnail,
   }) {
     return CharacterModel(
       id: id ?? this.id,

@@ -1,17 +1,18 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:marvels_api/core/api/api.dart';
 
 class CharacterService {
   CharacterService() {
-    _dio = Dio(BaseOptions(baseUrl: _baseUrl));
+    _dio = Dio(BaseOptions());
   }
   late final Dio _dio;
-  final _baseUrl = 'http://gateway.marvel.com/v1/public';
-
   Future<Response> getCharacters() async {
+    String timestamp = DateTime.now().toIso8601String();
     return await _dio.get(
-      '/characters',
-      options: Options(headers: {"apikey": apiKey}),
+      'https://gateway.marvel.com/v1/public/characters?apikey=$publicKey&ts=$timestamp&hash=${md5.convert(utf8.encode('$timestamp$privateKey$publicKey')).toString()}',
     );
   }
 }
