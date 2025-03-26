@@ -1,8 +1,8 @@
 <p align="center">
-   <img src="https://github.com/user-attachments/assets/eb1a85c5-b298-4323-b55d-d37b915a6517" alt="app" width="200"/>
+   <img src="https://github.com/user-attachments/assets/dc915eb4-cc3d-414f-950c-ce951426d521" alt="app" width="200"/>
 </p>
 
-<h1 align="center">Marvels API</h1>
+<h1 align="center">Marvels API</h1> 
 
 <p align="center">
    <a href="https://www.linkedin.com/in/igor-sthaynny/">
@@ -40,13 +40,11 @@
 - [:page_facing_up: Licença](#page_facing_up-licença)
 
 # :camera: Screenshots
-<div align="center">
-   <img src="https://user-images.githubusercontent.com/46109133/155231022-7d54b0eb-a0c5-4e60-a244-3e5c30fc9373.jpeg" width="230"/>
-   <img src="https://user-images.githubusercontent.com/46109133/155231022-7d54b0eb-a0c5-4e60-a244-3e5c30fc9373.jpeg" width="230"/>
-   <img src="https://user-images.githubusercontent.com/46109133/155231022-7d54b0eb-a0c5-4e60-a244-3e5c30fc9373.jpeg" width="230"/>
 
-</div>
-  
+Teste de integração para rodar o app de maneira altomatica:
+
+https://github.com/user-attachments/assets/4ae9598a-f201-41fd-bc63-d7f984ebfc53
+
 
 
 # :rocket: Tecnologias
@@ -55,8 +53,9 @@ Tecnologias usadas:
 - Api Rest(dio: dio: ^5.8.0+1)
 - Lib de criptografia(crypto: ^3.0.6)
 - Mocks para teste(mocktail: ^1.0.4)
+- Criação de teste de unidade, componente e de integração(patrol: ^3.14.1);
 
-Foi utilizado MVVM como arquitetura, estrutura de commands do flutter para gerencia de stados da tela.
+### Foi utilizado MVVM como arquitetura, estrutura de commands do flutter para gerencia de estados da tela e testes de integração utiliozando patrol.
 
 Pontos de molhoria:
 
