@@ -60,14 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     CarrouselCharactersWidget(characters: viewModel.characters),
-                    ...viewModel.characters.map(
-                      (character) => Padding(
-                        padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).size.height * .005,
+                    ...viewModel.characters
+                        .getRange(5, viewModel.characters.length - 1)
+                        .map(
+                          (character) => Padding(
+                            padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).size.height * .005,
+                            ),
+                            child: CardCharacterWidget(character: character),
+                          ),
                         ),
-                        child: CardCharacterWidget(character: character),
-                      ),
-                    ),
                   ],
                 ),
               );
