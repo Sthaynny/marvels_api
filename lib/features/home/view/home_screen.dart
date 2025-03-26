@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvels_api/core/utils/string/strings.dart';
 import 'package:marvels_api/features/home/view/home_view_model.dart';
-import 'package:marvels_api/features/home/view/widgets/image_widget.dart';
+import 'package:marvels_api/features/home/view/widgets/carrousel_characters_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.viewModel});
@@ -59,22 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 : SingleChildScrollView(
                   child: Column(
                     children: [
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxHeight: MediaQuery.of(context).size.height * .3,
-                          maxWidth: MediaQuery.of(context).size.width - 16,
-                        ),
-                        child: CarouselView(
-                          itemExtent: MediaQuery.of(context).size.height * .4,
-                          elevation: 5,
-                          children:
-                              viewModel.characters
-                                  .map(
-                                    (e) => ImageWidget(url: e.thumbnail.path),
-                                  )
-                                  .toList(),
-                        ),
+                      CarrouselCharactersWidget(
+                        characters: viewModel.characters,
                       ),
+                      
                     ],
                   ),
                 );
