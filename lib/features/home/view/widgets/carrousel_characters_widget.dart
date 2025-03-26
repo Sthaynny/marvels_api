@@ -9,7 +9,9 @@ class CarrouselCharactersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).size.height * .01,
+      ),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxHeight: MediaQuery.of(context).size.height * .3,
