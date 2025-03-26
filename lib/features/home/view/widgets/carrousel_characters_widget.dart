@@ -26,7 +26,10 @@ class CarrouselCharactersWidget extends StatelessWidget {
                   .map(
                     (e) => Stack(
                       children: [
-                        ImageWidget(url: e.thumbnail.path),
+                        ImageWidget(
+                          url: e.thumbnail.path,
+                          size: MediaQuery.of(context).size.height * .5,
+                        ),
                         Positioned(
                           left: 16,
                           bottom: 16,

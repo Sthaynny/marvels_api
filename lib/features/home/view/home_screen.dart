@@ -44,6 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListenableBuilder(
         listenable: viewModel.getCharacters,
         builder: (context, child) {
+          if (viewModel.getCharacters.running) {
+            return Center(child: const CircularProgressIndicator());
+          }
           if (viewModel.isError) {
             return Center(
               child: ElevatedButton(
@@ -54,26 +57,27 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             );
           }
-          return viewModel.getCharacters.running
-              ? Center(child: const CircularProgressIndicator())
-              : SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    CarrouselCharactersWidget(characters: viewModel.characters),
-                    ...viewModel.characters
-                        .getRange(5, viewModel.characters.length - 1)
-                        .map(
-                          (character) => Padding(
-                            padding: EdgeInsets.only(
-                              bottom: MediaQuery.of(context).size.height * .005,
-                            ),
-                            child: CardCharacterWidget(character: character),
-                          ),
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                CarrouselCharactersWidget(characters: viewModel.characters),
+                ...viewModel.characters
+                    .getRange(5, viewModel.characters.length - 1)
+                    .map(
+                      (character) => Padding(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * .005,
                         ),
-                  ],
-                ),
-              );
+                        child: CardCharacterWidget(
+                          key: Key('card-${character.id}'),
+                          character: character,
+                        ),
+                      ),
+                    ),
+              ],
+            ),
+          );
         },
       ),
     );
@@ -81,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _onResult() {
     if (viewModel.getCharacters.error) {
+      viewModel.getCharacters.clearResult();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
