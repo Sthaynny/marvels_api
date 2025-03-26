@@ -8,16 +8,21 @@ class CarrouselCharactersWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxHeight: MediaQuery.of(context).size.height * .3,
-        maxWidth: MediaQuery.of(context).size.width - 16,
-      ),
-      child: CarouselView(
-        itemExtent: MediaQuery.of(context).size.height * .4,
-        elevation: 5,
-        children:
-            characters.map((e) => ImageWidget(url: e.thumbnail.path)).toList(),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height * .3,
+          maxWidth: MediaQuery.of(context).size.width - 16,
+        ),
+        child: CarouselView(
+          itemExtent: MediaQuery.of(context).size.height * .4,
+          elevation: 5,
+          children:
+              characters
+                  .map((e) => ImageWidget(url: e.thumbnail.path))
+                  .toList(),
+        ),
       ),
     );
   }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ImageWidget extends StatelessWidget {
-  const ImageWidget({super.key, required this.url});
+  const ImageWidget({super.key, required this.url, this.height});
   final String url;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +11,8 @@ class ImageWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(8),
       child: Image.network(
         url,
-        height: 200,
-        width: double.infinity,
+        height: height,
+        width: height,
         fit: BoxFit.cover,
       ),
     );
