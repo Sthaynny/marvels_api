@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marvels_api/core/routes/app_router.dart';
 import 'package:marvels_api/core/utils/text/scale_size.dart';
 import 'package:marvels_api/features/home/view/widgets/image_widget.dart';
 import 'package:marvels_api/features/shared/characters/domain/models/character_model.dart';
@@ -19,6 +20,12 @@ class CarrouselCharactersWidget extends StatelessWidget {
           maxWidth: MediaQuery.of(context).size.width - 16,
         ),
         child: CarouselView(
+          onTap: (index) {
+            Navigator.of(context).pushNamed(
+              AppRouters.detailsPerson.path,
+              arguments: characters[index],
+            );
+          },
           itemExtent: MediaQuery.of(context).size.height * .4,
           elevation: 5,
           children:
@@ -26,23 +33,29 @@ class CarrouselCharactersWidget extends StatelessWidget {
                   .map(
                     (e) => Stack(
                       children: [
-                        ImageWidget(
-                          url: e.thumbnail.path,
-                          size: MediaQuery.of(context).size.height * .5,
+                        Semantics(
+                          excludeSemantics: true,
+                          child: ImageWidget(
+                            url: e.thumbnail.path,
+                            size: MediaQuery.of(context).size.height * .5,
+                          ),
                         ),
                         Positioned(
                           left: 16,
                           bottom: 16,
-                          child: Text(
-                            e.name,
-
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                              color: Colors.blueAccent,
-                            ),
-                            textScaler: TextScaler.linear(
-                              ScaleSize.textScaleFactor(context),
+                          child: Semantics(
+                            header: true,
+                            button: true,
+                            child: Text(
+                              e.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                                color: Colors.blueAccent,
+                              ),
+                              textScaler: TextScaler.linear(
+                                ScaleSize.textScaleFactor(context),
+                              ),
                             ),
                           ),
                         ),

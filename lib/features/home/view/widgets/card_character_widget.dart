@@ -13,12 +13,18 @@ class CardCharacterWidget extends StatelessWidget {
     return Card(
       child: ListTile(
         onTap: () {
-          Navigator.of(context).pushNamed(AppRouters.detailsPerson.path, arguments: character);
+          Navigator.of(
+            context,
+          ).pushNamed(AppRouters.detailsPerson.path, arguments: character);
         },
-        title: Text(
-          character.name,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
+        title: Semantics(
+          header: true,
+          button: true,
+          child: Text(
+            character.name,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
+          ),
         ),
         subtitle: Text(
           character.description,
